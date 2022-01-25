@@ -37,9 +37,9 @@ def send():
                     sendmail.append(keys)
             server=smtplib.SMTP("smtp.gmail.com", 587)
             server.starttls()
-            server.login("fromtome99@gmail.com", "fsfsfsfs")
+            server.login("example@gmail.com", "******")
             message="Happy Birthday"
-            server.sendmail("fromtome99@gmail.com", sendmail, message)
+            server.sendmail("example@gmail.com", sendmail, message)
             print("\nDone")
             server.quit()
             break
