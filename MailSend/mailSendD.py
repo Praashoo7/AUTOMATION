@@ -53,7 +53,6 @@ def dmycalculateCModule(pyear):
     if bmonth==12:
         cmonth=cyear*12
     else:
-        #for i in range(12,0,-1):
         cmonth=(cyear*12)+month-bmonth
     
     Jan=31
@@ -751,9 +750,9 @@ def send():
                                         if k==dict1[keys]:
                                             server=smtplib.SMTP("smtp.gmail.com", 587)
                                             server.starttls()
-                                            server.login("fromtome99@gmail.com", "fsfsfsfs")
+                                            server.login("example@gmail.com", "*****")
                                             message="Happy Birthday\n\n"+dmycalculateCModule(k)
-                                            server.sendmail("fromtome99@gmail.com", j, message)
+                                            server.sendmail("example@gmail.com", j, message)
                                             server.quit()
             print("Done")
             break
