@@ -53,6 +53,7 @@ def dmycalculateCModule(pyear):
     if bmonth==12:
         cmonth=cyear*12
     else:
+        #for i in range(12,0,-1):
         cmonth=(cyear*12)+month-bmonth
     
     Jan=31
@@ -717,16 +718,18 @@ def send():
     d=date.day
     dict={}
     dict1={}
+    dict2={}
     list=[]
     sendlist=[]
     dcal=[]
     dcal2=[]
     sendmail=[]
+    n=[]
     
-    dates=pd.read_excel("birth.xlsx")
+    dates=pd.read_excel("birth1.xlsx")
     yearlist=dates["Year"].tolist()
     monthlist=dates["Month"].tolist()
-    
+    namelist=dates["Name"].tolist()
     datelist=dates["Date"].tolist()
     maillist=dates["Email"].tolist()
     
@@ -736,6 +739,9 @@ def send():
     for i in range(len(maillist)):
         dict1[maillist[i]]=yearlist[i]
         
+    for i in range(len(maillist)):
+        dict2[maillist[i]]=namelist[i]
+
     for i in monthlist:
         if m==i:
             for keys in dict:
@@ -752,36 +758,37 @@ def send():
         for i in dcal:
             if dict1[keys]==i:
                 dcal2.append(keys)
-                f=open("days.txt","w")
-                f.write(dmycalculateCModule(i))
-                f.close()
-                
-                contacts = [keys]
-                msg = EmailMessage()
-                msg['Subject'] = 'Hello'
-                msg['From'] = "example@gmail.com"
-                msg['To'] = keys
-                msg.set_content('Happy Birthday')
-          
+                for k in dict2:
+                    if keys==k:
+                        print(dcal2)
+                        print(dict2[k])
+                        f=open("days.txt","w")
+                        f.write(dmycalculateCModule(i))
+                        f.close()
+               
+                        contacts = [keys]
+                        msg = EmailMessage()
+                        msg['Subject'] = 'Hello'
+                        msg['From'] = "fromtome99@gmail.com"
+                        msg['To'] = keys
+                        msg.set_content('Happy Birthday '+dict2[k])
+        
 
-                with open("days.txt","rb") as f:
-                    file_data=f.read()
-                    file_name=f.name
+                        with open("days.txt","rb") as f:
+                            file_data=f.read()
+                            file_name=f.name
                 
-                msg.add_attachment(file_data,maintype="text",subtype="file_type", filename=file_name)
-       
-                with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
-                    smtp.login("example@gmail.com", "******")
-                    smtp.send_message(msg)
+                        msg.add_attachment(file_data,maintype="text",subtype="file_type", filename=file_name)
+     
+                        with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
+                            smtp.login("fromtome99@gmail.com", "fsfsfsfs")
+                            smtp.send_message(msg)
+                break
     print("\nDone")
 
 def main():
 
-    schedule.every().day.at("00:00").do(send)
-    
-    while True:
-        schedule.run_pending()
-        time.sleep(1)
+    send()
     
 if __name__=="__main__":
 	main()
