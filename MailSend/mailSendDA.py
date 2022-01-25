@@ -53,7 +53,6 @@ def dmycalculateCModule(pyear):
     if bmonth==12:
         cmonth=cyear*12
     else:
-        #for i in range(12,0,-1):
         cmonth=(cyear*12)+month-bmonth
     
     Jan=31
@@ -760,7 +759,7 @@ def send():
                 contacts = [keys]
                 msg = EmailMessage()
                 msg['Subject'] = 'Hello'
-                msg['From'] = "fromtome99@gmail.com"
+                msg['From'] = "example@gmail.com"
                 msg['To'] = keys
                 msg.set_content('Happy Birthday')
           
@@ -772,7 +771,7 @@ def send():
                 msg.add_attachment(file_data,maintype="text",subtype="file_type", filename=file_name)
        
                 with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
-                    smtp.login("fromtome99@gmail.com", "fsfsfsfs")
+                    smtp.login("example@gmail.com", "******")
                     smtp.send_message(msg)
     print("\nDone")
 
