@@ -7,7 +7,7 @@ from sys import *
 
 def FileDuplication():
     
-    p=""                                           #FOLDER_PATH                                 
+    p=os.path.realpath("")+"\\"                    #FOLDER_NAME/FOLDER_PATH(If FolderName is gievn it finds the Folder inside current Directory and if path is Given It Goes to The Givn Path)                             
     file=""                                        #FILE_NAME
 
     foexists=os.path.isfile(p+file)
@@ -39,22 +39,33 @@ def FileDuplication():
             dict[list[i]]=list1[i]
     
         del dict[file]
-        
-        print(dict)
-        print(org)
-        print()
 
-        fc=open("log.txt","x")
-        fo=open("log.txt","w")
-        for i in list1:
-            for keys in dict:
-                if dict[keys]==i:
-                    fo.write("Name of Duplicate File is : ")
-                    fo.write(keys)
-                    fo.write("\n\n")
-                    os.remove(p+keys)
-                    print("Name of Duplicate File is Successfully Copied to log.txt and Duplicate file is removed")
-            break
+        print()
+        if os.path.isfile("log.txt"):
+            os.remove("log.txt")
+            fc=open("log.txt","x")
+            fo=open("log.txt","w")
+            for i in list1:
+                for keys in dict:
+                    if dict[keys]==i:
+                        fo.write("Name of Duplicate File is : ")
+                        fo.write(keys)
+                        fo.write("\n\n")
+                        os.remove(p+keys)
+                        print("Name of Duplicate File is Successfully Copied to log.txt and Duplicate file is removed")
+                break
+        else:
+            fc=open("log.txt","x")
+            fo=open("log.txt","w")
+            for i in list1:
+                for keys in dict:
+                    if dict[keys]==i:
+                        fo.write("Name of Duplicate File is : ")
+                        fo.write(keys)
+                        fo.write("\n\n")
+                        os.remove(p+keys)
+                        print("Name of Duplicate File is Successfully Copied to log.txt and Duplicate file is removed")
+                break
 
     else:
         print("\nINVALID PATH/FILE")
