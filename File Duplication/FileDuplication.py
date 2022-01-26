@@ -7,7 +7,7 @@ from sys import *
 
 def FileDuplication(p1,file1):
     
-    p=p1                                    
+    p=os.path.realpath(p1)+"\\"                                    
     file=file1   
 
     foexists=os.path.isfile(p+file)
@@ -63,7 +63,7 @@ def main():
     
     if len(argv)==2:
         if argv[1]=="-h" or argv[1]=="-H":
-            print("HELP : FOLDER_PATH FILE_NAME")
+            print("HELP : FOLDER_NAME FILE_NAME")
         elif argv[1]=="-u" or argv[1]=="-U":
             print("USAGE : Used to Delete Duplications of a File.")
         else:
@@ -72,9 +72,9 @@ def main():
         
     if len(argv)==3:
         try:
-            folderpath=argv[1]
+            foldername=argv[1]
             filename=argv[2]
-            FileDuplication(folderpath,filename)
+            FileDuplication(foldername,filename)
         except Exception:
             print("INVALID ARGUMENT")
             quit()
