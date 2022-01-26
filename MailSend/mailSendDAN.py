@@ -760,8 +760,6 @@ def send():
                 dcal2.append(keys)
                 for k in dict2:
                     if keys==k:
-                        print(dcal2)
-                        print(dict2[k])
                         f=open("days.txt","w")
                         f.write(dmycalculateCModule(i))
                         f.close()
