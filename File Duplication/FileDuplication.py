@@ -55,7 +55,7 @@ def FileDuplication(p1,file1):
 def main():
     
     print("-----FILE DUPLICATION REMOVER-----")
-    if (len(argv)>3) or (len(argv)<2) or len(argv)==1:
+    if (len(argv)>3) or (len(argv)<2):
         print("INVALID ARGUMENT")
         print("Use -u Flag for Usage")
         print("Use -h Flag for Help")
