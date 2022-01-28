@@ -5,7 +5,7 @@ def main():
 
     print("\n----COPY FILE(EXT)-----\n")
     
-    if len(argv)>4 or len(argv)<2 or len(argv)==3:
+    if len(argv)>4 or len(argv)<2 or len(argv)==3 or len(argv)==1:
         print("INVALID ARGUMENT\nEnter -u for Usage\nEnter -h for Help")
     
     if len(argv)==2:
