@@ -5,7 +5,7 @@ def main():
 	
     print("\n----DISPLAY FILE-----\n")
     
-    if len(argv)>3 or len(argv)<2:
+    if len(argv)>3 or len(argv)<2 or len(argv)==1:
         print("INVALID ARGUMENT\nEnter -u for Usage\nEnter -h for Help")
     
     if len(argv)==2:
