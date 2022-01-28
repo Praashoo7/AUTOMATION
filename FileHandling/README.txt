@@ -10,3 +10,8 @@
 4. Automation script which accepts two directory names and one file extension and Copy all
    files with the specified extension from first directory to second directory. Second directory is
    created at run time.  
+   
+5. Has Three Files.
+   1. Deletes all Files from the Given Folder Which are Greater than 1MB in Size.
+   2. Deletes the Largest File from the Given Folder.
+   3. This is used to Move all Files From A Directory to Another
