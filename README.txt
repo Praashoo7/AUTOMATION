@@ -1,3 +1,3 @@
 File Duplication has TWO different Codes to achieve Different Tasks related to File Duplication and
 
-Mail Send has THREE Different Codes to achieve Different Tasks related to Sending Mails.
+Mail Send has THREE Different Codes to achieve Different Tasks related to Sending Mails(Using ExcelFile to Access Data).
