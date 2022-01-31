@@ -786,7 +786,11 @@ def send():
 
 def main():
 
-    send()
+    schedule.every().day.at("00:00").do(send)
+    
+    while True:
+        schedule.run_pending()
+        time.sleep(1)
     
 if __name__=="__main__":
 	main()
