@@ -12,7 +12,7 @@ as message on the person's E-MailId who evers birthday is on that day.
 
    Already created dmycalculateCModule.py MODULE from MiniProjects Repository is Used for Calculations.
 
-4. In DuplicateSend.py, The Script is scheduled to run every Hour and It checks Duplicate Files in Given folder if Duplications found it creates a Directory, Inside Directory it creates a log.txt which maintains all names of duplicate files which are deleted(log.txt is only created if Dupliations are Found). Name of that log file contains the date and time at which that file gets created. The log file is then sent to the Email-ID. 
+4. In mailSendDuplicate.py, The Script is scheduled to run every Hour and It checks Duplicate Files in Given folder if Duplications found it creates a Directory, Inside Directory it creates a log.txt which maintains all names of duplicate files which are deleted(log.txt is only created if Dupliations are Found). Name of that log file contains the date and time at which that file gets created. The log file is then sent to the Email-ID. 
         
         Mail body Contains Following Statistics about File Duplication :-
               
