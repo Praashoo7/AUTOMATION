@@ -82,7 +82,7 @@ def send():
                 
                 try:
                     with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
-                        smtp.login("fromtome77@gmail.com", "fsfsfsfs")
+                        smtp.login("example@gmail.com", "******")
                         smtp.send_message(msg)
                 except Exception as e:
                     print("Username and Password not accepted\nError :",e)
