@@ -74,7 +74,7 @@ def send():
                 contacts = [keys]
                 msg = EmailMessage()
                 msg['Subject'] = 'HAPPY BIRTHDAY!'
-                msg['From'] = "fromtome77@gmail.com"
+                msg['From'] = "example@gmail.com"
                 msg['To'] = j
                 msg.set_content('Happy Birthday '+dict2[i]+'\n\n'+random.choice(qlist))
                 
