@@ -813,6 +813,13 @@ def main():
     #while True:
     #    schedule.run_pending()
     #    time.sleep(1)
+
+    try:
+        urllib.request.urlopen("http://google.com",timeout=3)
+    except Exception as c:
+        print("\nInternet Connection Required.\nERROR :",c)
+        quit()
+
     try:
         send()
     except Exception as c:
