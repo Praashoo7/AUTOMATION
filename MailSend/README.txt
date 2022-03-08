@@ -5,7 +5,7 @@ There is an excel(birth1.xlsx) file having Birthdates and E-MailId's of Diffeere
 
 1. In mailSend.py, The script is scheduled to run at "00:00" every day and it sends Happy Birthday message and PARTICULAR PERSOSN'S NAME as message and a random quote and a random Birthday image on the person's E-MailId who evers birthday is on that day.
 
-2. In mailSendDAN.py, The script is scheduled to run at "00:00" every day and it sends Happy Birthday and PARTICULAR PERSOSN'S NAME as message and Total Years, Months, Weeks and Days They have lived till Date WRITTEN IN A TEXT FILE ATTACHED in the mail on the person's E-MailId who evers birthday is on that day.
+2. In mailSendDAN.py, The script is scheduled to run at "00:00" every day and it sends Happy Birthday and PARTICULAR PERSOSN'S NAME as message and Total Years, Months, Weeks and Days They have lived till Date WRITTEN IN A TEXT FILE ATTACHED in the mail on the person's E-MailId who evers birthday is on that day.(This looks like a huge code because instead of using inmplicit libraries i used the function i created my self for date calculations. It can be simply reduced.)
 
    Already created dmycalculateCModule.py MODULE from MiniProjects Repository is Used for Calculations.
 
