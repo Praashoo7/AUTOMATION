@@ -6,6 +6,7 @@ from email.message import EmailMessage
 import schedule
 import smtplib
 import time
+import urllib.request
 
 def mailS(f,f2,st1,tf1,tdf1,m):
     
@@ -103,11 +104,22 @@ def fd():
 
 def main():
     
-    schedule.every(60).minutes.do(fd)
+    #schedule.every(60).minutes.do(fd)
     
-    while True:
-        schedule.run_pending()
-        time.sleep(1)
+    #while True:
+    #    schedule.run_pending()
+    #    time.sleep(1)
+
+    try:
+        urllib.request.urlopen("http://google.com",timeout=3)
+    except Exception as c:
+        print("\nInternet Connection Required.\nERROR :",c)
+        quit()
+
+    try:
+        fd()
+    except Exception as c:
+        print(c)
 
 if __name__=="__main__":
 	main()
