@@ -5,6 +5,8 @@ import smtplib
 from email.message import EmailMessage
 import schedule
 import time
+import re
+import random
 
 def dmycalculateCModule(pyear):   
 
@@ -719,12 +721,10 @@ def send():
     dict={}
     dict1={}
     dict2={}
-    list=[]
-    sendlist=[]
+    dict3={}
     dcal=[]
-    dcal2=[]
-    sendmail=[]
-    n=[]
+    mcal=[]
+    sendlist=[]
     
     dates=pd.read_excel("birth1.xlsx")
     yearlist=dates["Year"].tolist()
@@ -737,60 +737,86 @@ def send():
         dict[maillist[i]]=datelist[i]
     
     for i in range(len(maillist)):
-        dict1[maillist[i]]=yearlist[i]
+        dict1[maillist[i]]=monthlist[i]
         
     for i in range(len(maillist)):
         dict2[maillist[i]]=namelist[i]
+	
+    for i in range(len(maillist)):
+        dict3[maillist[i]]=yearlist[i]
 
-    for i in monthlist:
-        if m==i:
-            for keys in dict:
-                if dict[keys]==d:
-                    sendlist.append(keys)
-                    for j in sendlist:
-                        for keys1 in dict1:
-                            if keys1==j:
-                                if dict1[keys1] not in dcal:
-                                    dcal.append(dict1[keys1])
-        break
-
+    for keys in dict:
+        if dict[keys]==d:
+            dcal.append(keys)
+    
     for keys in dict1:
-        for i in dcal:
-            if dict1[keys]==i:
-                dcal2.append(keys)
-                for k in dict2:
-                    if keys==k:
-                        f=open("days.txt","w")
-                        f.write(dmycalculateCModule(i))
-                        f.close()
-               
-                        contacts = [keys]
-                        msg = EmailMessage()
-                        msg['Subject'] = 'Hello'
-                        msg['From'] = "fromtome99@gmail.com"
-                        msg['To'] = keys
-                        msg.set_content('Happy Birthday '+dict2[k])
-        
+        if dict1[keys]==m:
+            mcal.append(keys)
+            
+    for i in dcal:
+        for j in mcal:
+            if i==j:
+                sendlist.append(i)
 
-                        with open("days.txt","rb") as f:
-                            file_data=f.read()
-                            file_name=f.name
-                
-                        msg.add_attachment(file_data,maintype="text",subtype="file_type", filename=file_name)
-     
+    regex=r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
+    
+    for i in sendlist:
+        if re.fullmatch(regex,i):
+            pass
+        else:
+            sendlist.remove(i)
+            print("\nWARNING :",i,"is an Invalid Email Address and is Removed")
+    
+
+    print("\nList of Email-ID's who have Birthdays Today :",sendlist,"\n")
+    
+    if len(sendlist)==0:
+        print("No Birthdays Today.")
+        quit()
+    
+    for i in dict2:
+        for j in sendlist:
+            for k in dict3:
+                if i==j and k==j:
+                    f=open("days.txt","w")
+                    f.write(dmycalculateCModule(dict3[k]))
+                    f.close()
+                   
+                    contacts = [keys]
+                    msg = EmailMessage()
+                    msg['Subject'] = 'Happy Birthday'
+                    msg['From'] = "example@gmail.com"
+                    msg['To'] = j
+                    msg.set_content('Happy Birthday '+dict2[i])
+            
+
+                    with open("days.txt","rb") as f:
+                        file_data=f.read()
+                        file_name=f.name
+                    
+                    msg.add_attachment(file_data,maintype="text",subtype="file_type", filename=file_name)
+         
+                    try:
                         with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
-                            smtp.login("fromtome99@gmail.com", "fsfsfsfs")
+                            smtp.login("example77@gmail.com", "*******")
                             smtp.send_message(msg)
-                break
-    print("\nDone")
+                    except Exception as e:
+                        print("Username and Password not accepted\nError :",e)
+                        quit()
+                        
+                    print("Mail Sent to",dict2[i],"at",j)
 
 def main():
 
-    schedule.every().day.at("00:00").do(send)
+    #schedule.every().day.at("00:00").do(send)
     
-    while True:
-        schedule.run_pending()
-        time.sleep(1)
+    #while True:
+    #    schedule.run_pending()
+    #    time.sleep(1)
+    try:
+        send()
+    except Exception as c:
+        print(c)
     
 if __name__=="__main__":
 	main()
