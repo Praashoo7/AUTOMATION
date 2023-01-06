@@ -15,3 +15,12 @@
    1. Deletes all Files from the Given Folder Which are Greater than 1MB in Size.
    2. Deletes the Largest File from the Given Folder.
    3. This is used to Move all Files From A Directory to Another
+
+
+There are Two Different Codes in File Duplication.
+
+1. In FileDuplication.py, It Removes The Duplicate Files of Given File From Given Path.
+
+2. In FileDuplication1.py, File is same as the First one But, FILE_PATH/FOLDER_NAME and ORIGINAL_FILE_NAME is provided in the Program already and the Script runs Every 20 Seconds To check the Duplications. After removing the Duplications Names of The Duplicate Files are Stord in the log.txt File.
+
+Both Programs Remove every Duplication of the Given File except the Given File.
