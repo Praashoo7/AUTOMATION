@@ -13,3 +13,4 @@ The other files and code of "Comp(or Comparison)" and "P(or Portrait)" is just d
 
 
 -> Normal code without extra button(Comp and P) is in Auto_P1.py.
+(In this we don't need comp_count.txt because we don't have extra pair of images so we can count the number using counter inside the code, we don't need a txt for that.)
