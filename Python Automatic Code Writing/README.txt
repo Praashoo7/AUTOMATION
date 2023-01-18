@@ -3,7 +3,7 @@ This is an Automation Script used for Adding images to a Photography Website as 
 Now with help of this script i only have to upload images to the specified google drive and add information of each image which is going to be added to the website in a text file which is also available on the specified drive. This script will run every 12 hours or any other specific amount of time and will check if new files are added to the drive if there are new files it will match the details of the image to the image and add it to the Website's code and it will be updated. This Script is designed to be completely robust and easy to use.
 
 1. OG_imgs_data.txt :- This file has Dictionary of all file-Keys and file-names which are laready present in the drive. Using this we can identify newly added files.
-                    We also write data back in this file as we aquire information about newly added files for further use.
+                       We also write data back in this file as we aquire information about newly added files for further use.
 2. comp_count.txt :- This file has a counter which increases by one after every image added. Using which we can give accurate numbers to the images on the webpage.
 3. pfile_data.txt :- Information related to images are stored in this file, Script reads information of images and the image name from this file and creates dictionary                        with name and information.
 4. imgs_template.txt :- This file has template code where we perform "search and replace" and create a block of code which will be added to the main webpage file.
