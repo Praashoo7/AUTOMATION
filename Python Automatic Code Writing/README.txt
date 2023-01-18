@@ -9,4 +9,4 @@ pfile_data.txt :- Information related to images are stored in this file, Script 
 imgs_template.txt :- This file has template code where we perform "search and replace" and create a block of code which will be added to the main webpage file.
 p_try - Copy (3).html :- This is the main webpage file where we add the block of code.
 
-The other files and code of "Comp" and "P" is just diffrent code needed for images with extra buttons. It works same as above.
+The other files and code of "Comp(or Comparison)" and "P(or Portrait)" is just diffrent code needed for images with extra buttons. It works same as above.
