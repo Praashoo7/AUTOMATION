@@ -5,7 +5,8 @@ Now with help of this script i only have to upload images to the specified googl
 1. OG_imgs_data.txt :- This file has Dictionary of all file-Keys and file-names which are laready present in the drive. Using this we can identify newly added files.
                        We also write data back in this file as we aquire information about newly added files for further use.
 2. comp_count.txt :- This file has a counter which increases by one after every image added. Using which we can give accurate numbers to the images on the webpage.
-3. pfile_data.txt :- Information related to images are stored in this file, Script reads information of images and the image name from this file and creates dictionary                        with name and information.
+3. pfile_data.txt :- Information related to images are stored in this file, Script reads information of images and the image name from this file and creates 
+                     dictionary with name and information.
 4. imgs_template.txt :- This file has template code where we perform "search and replace" and create a block of code which will be added to the main webpage file.
 5. p_try - Copy (3).html :- This is the main webpage file where we add the block of code.
 
